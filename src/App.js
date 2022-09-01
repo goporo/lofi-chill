@@ -6,7 +6,7 @@ import HomePage from './components/HomePage';
 function App() {
 
   return (
-    <HomePage img={images.lofi1} />
+    <HomePage img={images.lofi0} />
   );
 }
 

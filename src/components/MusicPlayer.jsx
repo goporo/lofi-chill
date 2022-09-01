@@ -8,15 +8,13 @@ import { HiOutlinePlay, HiOutlineRewind, HiOutlineFastForward, HiOutlinePause, H
 import { useEffect } from 'react'
 
 const MusicPlayer = () => {
-    const [muted, setMuted] = useState(false)
-    const [volume, setVolume] = useState(1)
-    const [oldVolume, setOldVolume] = useState(1)
+    const [volume, setVolume] = useState(0.5)
+    const [oldVolume, setOldVolume] = useState(0.5)
     const [isPlay, setPlay] = useState(false);
     const [audioIndex, setAudioIndex] = useState(0);
     const audioRef = useRef();
 
     const handleLoadedData = () => {
-        // setDuration(audioRef.current.duration);
         if (isPlay) audioRef.current.play();
     };
 
@@ -29,31 +27,39 @@ const MusicPlayer = () => {
         setPlay(!isPlay);
     };
 
+    const handleRewindAudio = () => {
+        setAudioIndex((audioIndex - 1) % audios.length)
+    }
+    const handleForwardAudio = () => {
+        setAudioIndex((audioIndex + 1) % audios.length)
+    }
+
     useEffect(() => { audioRef.current.volume = volume }, [volume])
 
     return (
         <div className='absolute bottom-20'>
             <audio
+                onEnded={handleForwardAudio}
                 ref={audioRef}
                 src={audios[audioIndex].src}
                 onLoadedData={handleLoadedData}
             />
             <div className='flex flex-col justify-center items-center  text-white'>
-                <h2 className='quicksand text-shadow mb-5 text-5xl'>
+                <h2 className='quicksand text-shadow mb-5 text-3xl md:text-5xl'>
                     {isPlay ? audios[audioIndex].name : <br />}</h2>
                 <div className="flex text-6xl">
                     <button className="hover:opacity-70"
-                        onClick={() => setAudioIndex((audioIndex + 1) % audios.length)}>
+                        onClick={handleRewindAudio}>
                         <HiOutlineRewind />
                     </button>
                     <button
-                        className='text-8xl mx-5 hover:opacity-70'
+                        className='text-8xl mx-5 hover:opacity-70 '
                         onClick={handlePausePlayClick} >
                         {isPlay ? <HiOutlinePause /> : <HiOutlinePlay />}
 
                     </button>
                     <button className='hover:opacity-70'
-                        onClick={() => setAudioIndex((audioIndex + 1) % audios.length)}>
+                        onClick={handleForwardAudio}>
                         <HiOutlineFastForward />
                     </button>
                 </div>

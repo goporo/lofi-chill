@@ -13,11 +13,11 @@ const HomePage = (props) => {
             className={`app h-screen bg-cover bg-no-repeat ${darkToggle && 'dark'}`}>
             <Header />
             <input type="checkbox" onClick={() => setDarkToggle(!darkToggle)} />
-            <div class="text-gray-800 dark:text-gray-200 font-bold text-xl mb-2">
+            <div className="text-gray-800 dark:text-gray-200 font-bold text-xl mb-2">
                 The Coldest Sunset
             </div>
             <Content />
-        </div>
+        </div >
     )
 }
 

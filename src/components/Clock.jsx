@@ -2,16 +2,17 @@ import React from 'react'
 
 const Clock = () => {
     return (
-        <div className='flex '> <div className='flex flex-row mr-20'>
-            <div className='text-8xl mx-3 p-10 text-white bg-black 
+        <div className='flex mb-10'>
+            <div className='flex flex-row mr-20'>
+                <div className='text-8xl mx-3 p-10 text-white bg-black 
             bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                2
-            </div>
-            <div className='text-8xl mx-3 p-10 text-white bg-black 
+                    2
+                </div>
+                <div className='text-8xl mx-3 p-10 text-white bg-black 
             bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                1
+                    1
+                </div>
             </div>
-        </div>
             {/*  */}
             <div className='flex flex-row'>
                 <div className='text-8xl mx-3 p-10 text-white bg-black 
@@ -22,7 +23,8 @@ const Clock = () => {
             bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
                     0
                 </div>
-            </div></div>
+            </div>
+        </div>
     )
 }
 

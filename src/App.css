@@ -24,3 +24,7 @@ body {
 a {
   text-decoration: none;
 }
+
+.quicksand {
+  font-family: quicksand, sans-serif;
+}

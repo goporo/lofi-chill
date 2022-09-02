@@ -1,17 +1,16 @@
-import React from 'react'
-
-import audios from '../assets/audios'
-import { useState } from 'react'
-import { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 import { HiOutlinePlay, HiOutlineRewind, HiOutlineFastForward, HiOutlinePause, HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import { useEffect } from 'react'
+
+import audios from '../assets/audios'
 
 const MusicPlayer = () => {
     const [volume, setVolume] = useState(0.5)
     const [oldVolume, setOldVolume] = useState(0.5)
     const [isPlay, setPlay] = useState(false);
     const [audioIndex, setAudioIndex] = useState(0);
+
     const audioRef = useRef();
 
     const handleLoadedData = () => {
@@ -39,12 +38,12 @@ const MusicPlayer = () => {
     return (
         <div className='absolute bottom-20'>
             <audio
-                onEnded={handleForwardAudio}
                 ref={audioRef}
                 src={audios[audioIndex].src}
                 onLoadedData={handleLoadedData}
+                onEnded={handleForwardAudio}
             />
-            <div className='flex flex-col justify-center items-center  text-white'>
+            <div className='flex flex-col justify-center items-center text-white'>
                 <h2 className='quicksand text-shadow mb-5 text-3xl md:text-5xl'>
                     {isPlay ? audios[audioIndex].name : <br />}</h2>
                 <div className="flex text-6xl">
@@ -53,7 +52,7 @@ const MusicPlayer = () => {
                         <HiOutlineRewind />
                     </button>
                     <button
-                        className='text-8xl mx-5 hover:opacity-70 '
+                        className='text-8xl mx-5 hover:opacity-70'
                         onClick={handlePausePlayClick} >
                         {isPlay ? <HiOutlinePause /> : <HiOutlinePlay />}
 
@@ -63,27 +62,30 @@ const MusicPlayer = () => {
                         <HiOutlineFastForward />
                     </button>
                 </div>
-                <div className="flex flex-row mt-5 ">
-                    <button
-                        onClick={() => {
-                            setOldVolume(volume)
-                            volume === 0 ? setVolume(oldVolume) : setVolume(0)
-                        }}
-                        className='text-3xl cursor-pointer'>
-                        {volume > 0 ? <HiVolumeUp /> : <HiVolumeOff />}
-                    </button>
-                    <input
-                        className='ml-2 cursor-pointer'
-                        type="range"
-                        min={0}
-                        max={1}
-                        step={0.02}
-                        value={volume}
-                        onChange={event => {
-                            setVolume(event.target.valueAsNumber)
-                        }}
-                    />
-                </div>
+                {isPlay ?
+                    <div className="flex flex-row mt-5 ">
+                        <button
+                            onClick={() => {
+                                setOldVolume(volume)
+                                volume === 0 ? setVolume(oldVolume) : setVolume(0)
+                            }}
+                            className='text-3xl cursor-pointer hover:opacity-70'>
+                            {volume > 0 ? <HiVolumeUp /> : <HiVolumeOff />}
+                        </button>
+                        <input
+                            className='ml-2 cursor-pointer'
+                            type="range"
+                            min={0}
+                            max={1}
+                            step={0.02}
+                            value={volume}
+                            onChange={event => {
+                                setVolume(event.target.valueAsNumber)
+                            }}
+                        />
+                    </div>
+                    : <div style={{ marginBottom: 31.25 }} />
+                }
             </div>
         </div>
     )

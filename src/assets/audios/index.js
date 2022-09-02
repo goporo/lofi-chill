@@ -5,7 +5,7 @@ const audios = [
     },
     {
         name: "Lofi tan truong",
-        src: require('./lofi1.mp3'),
+        src: require('./lofi0.mp3'),
     },
 
 ];

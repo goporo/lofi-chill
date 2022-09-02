@@ -46,9 +46,21 @@ const Clock = () => {
     }, [tabHasFocus]);
 
     return (
-        <>
+        <div className='clock-appear'>
             <div className='relative flex mt-16 mb-20 w-full justify-center text-5xl text-white text-shadow tracking-wider'>
-                <span className='ml-4'>T i m e &nbsp;&nbsp;&nbsp;S p e n t</span>
+                <div className='ml-109'>
+                    <span className='character-animation'>T </span>
+                    <span className='character-animation'>i </span>
+                    <span className='character-animation'>m </span>
+                    <span className='character-animation mr-5'>e </span>
+
+                    <span className='character-animation'>S </span>
+                    <span className='character-animation'>p </span>
+                    <span className='character-animation'>e </span>
+                    <span className='character-animation'>n </span>
+                    <span className='character-animation'>t </span>
+
+                </div>
                 <div className="group bg-black rounded-full ml-5 p-0.5 cursor-pointer">
                     <img className='hidden group-hover:block absolute top-20 left-1/2 -translate-x-1/2 rounded-3xl 
                     fade-display' width={400} src={images.pomodoro} alt="" />
@@ -81,7 +93,7 @@ const Clock = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

@@ -4,11 +4,14 @@ import images from './assets/images';
 
 import HomePage from './components/HomePage';
 
+
+import store, { fullScreenSlice, updateFullScreen } from './app/store';
+
 function App() {
   const [lofiIdx, setlofiIdx] = useState(0)
+  const [helo, setHelo] = useState(false)
   return (
     <div>
-      {/* <button onClick={() => { alert(lofiIdx) }}>helo</button> */}
       <HomePage img={images.lofis[lofiIdx].img} />
     </div>
   );

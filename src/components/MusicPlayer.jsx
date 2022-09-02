@@ -6,9 +6,9 @@ import { useEffect } from 'react'
 import audios from '../assets/audios'
 
 const MusicPlayer = () => {
-    var hiShadow = "drop-shadow(3px 3px 1px rgba(0,0,0,0.25))"
-    const [volume, setVolume] = useState(0.7)
-    const [oldVolume, setOldVolume] = useState(0.7)
+    var hiShadow = "drop-shadow(3px 3px 1px rgba(0,0,0,0.35))"
+    const [volume, setVolume] = useState(0.75)
+    const [oldVolume, setOldVolume] = useState(0.75)
     const [isPlay, setPlay] = useState(false);
     const [audioIndex, setAudioIndex] = useState(0);
 
@@ -37,7 +37,7 @@ const MusicPlayer = () => {
     useEffect(() => { audioRef.current.volume = volume }, [volume])
 
     return (
-        <div className='absolute bottom-20'>
+        <div className='absolute bottom-20 '>
             <audio
                 autoPlay
                 ref={audioRef}
@@ -58,17 +58,17 @@ const MusicPlayer = () => {
                 <div className="flex text-6xl opacity-90">
                     <button className="hover:opacity-70"
                         onClick={handleRewindAudio}>
-                        {isPlay ? <HiOutlineRewind filter={hiShadow} /> : null}
+                        {isPlay ? <HiOutlineRewind className='fade-display' filter={hiShadow} /> : null}
                     </button>
                     <button
                         className='text-8xl mx-5 hover:opacity-70'
                         onClick={handlePausePlayClick} >
-                        {isPlay ? <HiOutlinePause filter={hiShadow} /> : <HiOutlinePlay filter={hiShadow} className='opacity-90' />}
+                        {isPlay ? <HiOutlinePause className='fade-display' filter={hiShadow} /> : <HiOutlinePlay filter={hiShadow} className='fade-display opacity-90' />}
 
                     </button>
                     <button className='hover:opacity-70'
                         onClick={handleForwardAudio}>
-                        {isPlay ? <HiOutlineFastForward filter={hiShadow} /> : null}
+                        {isPlay ? <HiOutlineFastForward className='fade-display' filter={hiShadow} /> : null}
                     </button>
                 </div>
                 {
@@ -83,7 +83,7 @@ const MusicPlayer = () => {
                                 {volume > 0 ? <HiVolumeUp filter={hiShadow} /> : <HiVolumeOff filter={hiShadow} />}
                             </button>
                             <input
-                                className='ml-2 cursor-pointer'
+                                className='fade-display ml-2 cursor-pointer'
                                 type="range"
                                 min={0}
                                 max={1}

@@ -32,12 +32,42 @@ a {
 
 @keyframes fade-display {
   from {
-    opacity: 0;
+    opacity: 0.25;
   }
   to {
     opacity: 1;
   }
 }
+
+@keyframes character-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1);
+  }
+}
+
 .fade-display {
-  animation: fade-display 0.3s ease-in-out;
+  animation: fade-display 0.25s ease-in-out;
+}
+
+.header-appear {
+  animation: fade-display 0.5s ease-in;
+}
+
+.clock-appear {
+  animation: fade-display 1.5s ease-in;
+}
+
+.character-animation {
+  display: inline-block;
+  padding: 0 7px;
+}
+
+.character-animation:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: all 0.1s ease-in-out;
 }

@@ -27,10 +27,12 @@ const MusicPlayer = () => {
     };
 
     const handleRewindAudio = () => {
-        setAudioIndex((audioIndex - 1) % audios.length)
+        setAudioIndex(audioIndex === 0 ? audios.length - 1 : audioIndex - 1)
     }
     const handleForwardAudio = () => {
-        setAudioIndex((audioIndex + 1) % audios.length)
+
+
+        setAudioIndex(audioIndex < audios.length - 1 ? audioIndex + 1 : 0)
     }
 
     useEffect(() => { audioRef.current.volume = volume }, [volume])

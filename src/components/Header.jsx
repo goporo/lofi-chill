@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header>
             <div className="flex flex-row items-center justify-between mx-0 md:mx-10">
-                <img className='cursor-pointer' width={110} src={images.logo} alt="logo" />
+                <img className='cursor-pointer hover:opacity-80' width={110} src={images.logo} alt="logo" />
                 <div className='flex flex-row '>
                     <div>
                         <div className='text-3xl mx-3 p-3 text-white bg-black 

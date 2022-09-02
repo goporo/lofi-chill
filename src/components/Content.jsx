@@ -14,7 +14,7 @@ const Content = () => {
 
 
     return (
-        <div className='h-screen flex flex-col  items-center'>
+        <div className='h-screen flex flex-col items-center'>
             <Clock />
             <MusicPlayer />
         </div>

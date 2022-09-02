@@ -4,11 +4,11 @@ import Content from './Content';
 import Header from './Header';
 
 const HomePage = (props) => {
+
     const { img } = props
     const [darkToggle, setDarkToggle] = useState(false)
     const [bgImg, setBgImg] = useState(img)
     return (
-
         <div style={{ backgroundImage: `url(${bgImg})` }}
             className={`app h-screen bg-cover bg-no-repeat ${darkToggle && 'dark'}`}>
             <Header />

@@ -47,44 +47,39 @@ const Clock = () => {
 
     return (
         <>
-            <div className='flex mt-20 mb-20 ml-4 text-5xl text-white text-shadow tracking-wider'>
-                T i m e &nbsp;&nbsp;&nbsp;S p e n t
-                <Tooltip
-                    position='bottom-'
-                    html={(
-                        <div>
-                            <img src={images.pomodoro} alt="" />
-                        </div>
-                    )}
-                >
-                    <div className="bg-black rounded-full ml-5 p-0.5 cursor-pointer hover:opacity-70">
-                        <span className=''><HiQuestionMarkCircle /></span>
-                    </div>
-                </Tooltip>
-
+            <div className='relative flex mt-16 mb-20 w-full justify-center text-5xl text-white text-shadow tracking-wider'>
+                <span className='ml-4'>T i m e &nbsp;&nbsp;&nbsp;S p e n t</span>
+                <div className="group bg-black rounded-full ml-5 p-0.5 cursor-pointer">
+                    <img className='hidden group-hover:block absolute top-20 left-1/2 -translate-x-1/2 rounded-3xl 
+                    fade-display' width={400} src={images.pomodoro} alt="" />
+                    <span className='hover:opacity-70'><HiQuestionMarkCircle /></span>
+                </div>
             </div >
-            <div className='flex mb-5 md:mb-10 '>
-                <div className='flex flex-row mr-20'>
-                    <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
-    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                        {parseInt(totalTime / 60 / 10)}
-                    </div>
-                    <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
-    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                        {parseInt(totalTime / 60 % 10)}
-                    </div>
-                </div>
-                {/*  */}
+            <div className='flex flex-col items-center mb-5 md:mb-10 '>
                 <div className='flex flex-row'>
-                    <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
-    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                        {parseInt(totalTime % 60 / 10)}
+                    <div className='flex flex-row mr-20'>
+                        <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
+                                    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
+                            {parseInt(totalTime / 60 / 10)}
+                        </div>
+                        <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
+                                    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
+                            {parseInt(totalTime / 60 % 10)}
+                        </div>
                     </div>
-                    <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
-    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
-                        {totalTime % 60 % 10}
+                    {/*  */}
+                    <div className='flex flex-row'>
+                        <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
+                                    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
+                            {parseInt(totalTime % 60 / 10)}
+                        </div>
+                        <div className='shadow-xl shadow-black text-6xl md:text-8xl p-6 md:p-10 mx-3 text-white bg-black 
+                                    bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'>
+                            {totalTime % 60 % 10}
+                        </div>
                     </div>
                 </div>
+
             </div>
         </>
     )

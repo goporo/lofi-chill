@@ -29,3 +29,15 @@ a {
 .text-shadow {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
+
+@keyframes fade-display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-display {
+  animation: fade-display 0.3s ease-in-out;
+}

@@ -19,7 +19,7 @@ const Header = (props) => {
                     <img className='cursor-pointer hover:opacity-80' width={110} src={images.logo} alt="logo" />
                 </Tooltip>
                 <div className='flex flex-row '>
-                    <div className='relative group' >
+                    <div className='md:relative group' >
                         <button className=' text-3xl mx-3 p-3 text-white bg-black 
                             bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'
                         >

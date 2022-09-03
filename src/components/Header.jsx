@@ -25,7 +25,7 @@ const Header = (props) => {
                     <Tooltip
                         title='Full Screen'
                     >
-                        <div>
+                        <div className='hidden lg:block'>
                             <button className='text-3xl mx-3 p-3 text-white bg-black 
                             bg-opacity-75 rounded-xl cursor-pointer hover:opacity-70'
                                 onClick={props.updateFullScreen}

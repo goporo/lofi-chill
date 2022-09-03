@@ -1,13 +1,12 @@
 const images = {
     lofis: [
+        { img: require('./lofi0.jpg') },
+        { img: require('./lofi1.jpg') },
+        { img: require('./lofi2.jpg') },
+        { img: require('./lofi3.jpg') },
         { img: require('./lofi4.jpg') },
-        { img: require('./lofi0.png') },
-        { img: require('./lofi1.gif') },
-        { img: require('./lofi2.webp') },
-        { img: require('./lofi3.gif') },
-        { img: require('./lofi5.png') },
+        { img: require('./lofi5.jpg') },
         { img: require('./lofi6.jpg') },
-        { img: require('./lofi7.jpg') },
     ],
     logo: require('./logo.gif'),
     pomodoro: require('./pomodoro_technique.jpg'),

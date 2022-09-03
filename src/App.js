@@ -6,7 +6,7 @@ import HomePage from './components/HomePage';
 
 
 function App() {
-  const [lofiIdx, setlofiIdx] = useState(7)
+  const [lofiIdx, setlofiIdx] = useState(0)
   const handleChangeTheme = () => {
     setlofiIdx(2)
     console.log(lofiIdx)

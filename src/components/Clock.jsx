@@ -47,8 +47,8 @@ const Clock = () => {
 
     return (
         <div className='clock-appear'>
-            <div className='relative flex mt-16 mb-20 w-full justify-center text-5xl text-white text-shadow tracking-wider'>
-                <div className='ml-109'>
+            <div className='relative flex mt-16 mb-16 w-full justify-center text-5xl text-white text-shadow tracking-wider'>
+                <div>
                     <span className='character-animation'>T </span>
                     <span className='character-animation'>i </span>
                     <span className='character-animation'>m </span>

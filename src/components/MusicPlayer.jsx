@@ -10,7 +10,8 @@ const MusicPlayer = () => {
     const [volume, setVolume] = useState(0.75)
     const [oldVolume, setOldVolume] = useState(0.75)
     const [isPlay, setPlay] = useState(false);
-    const [audioIndex, setAudioIndex] = useState(0);
+    const [canPlay, setCanPlay] = useState(false);
+    const [audioIndex, setAudioIndex] = useState(parseInt(localStorage.getItem('audio-index')) || 0);
 
     const audioRef = useRef();
 
@@ -19,6 +20,7 @@ const MusicPlayer = () => {
     };
 
     const handlePausePlayClick = () => {
+        setCanPlay(true)
         if (isPlay) {
             audioRef.current.pause();
         } else {
@@ -34,12 +36,14 @@ const MusicPlayer = () => {
         setAudioIndex(audioIndex < audios.length - 1 ? audioIndex + 1 : 0)
     }
 
+    useEffect(() => { localStorage.setItem('audio-index', audioIndex) }, [audioIndex])
     useEffect(() => { audioRef.current.volume = volume }, [volume])
+
 
     return (
         <div className='absolute bottom-20 '>
             <audio
-                autoPlay
+                autoPlay={canPlay}
                 ref={audioRef}
                 src={audios[audioIndex].src}
                 onLoadedData={handleLoadedData}
@@ -83,7 +87,7 @@ const MusicPlayer = () => {
                                 {volume > 0 ? <HiVolumeUp filter={hiShadow} /> : <HiVolumeOff filter={hiShadow} />}
                             </button>
                             <input
-                                className='fade-display ml-2 cursor-pointer'
+                                className='fade-display ml-2 cursor-pointer slider'
                                 type="range"
                                 min={0}
                                 max={1}

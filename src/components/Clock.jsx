@@ -1,15 +1,6 @@
-import React from 'react'
-import { useRef } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react'
 import { HiQuestionMarkCircle } from 'react-icons/hi';
-
-import {
-    Tooltip,
-} from 'react-tippy';
 import 'react-tippy/dist/tippy.css'
-
 
 import images from '../assets/images';
 

@@ -1,22 +1,27 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
+import images from '../assets/images';
 
 
-export const fullScreenSlice = createSlice({
-    name: "FullScreen",
+export const themeSlice = createSlice({
+    name: "Theme Change",
     initialState: {
-        isFullScreen: false,
+        lofiIdx: parseInt(localStorage.getItem("lofi-index")) || 0,
     },
     reducers: {
-        updateFullScreen: (state) => {
-            state.isFullScreen = !state.isFullScreen;
+        updateTheme: (state) => {
+            if (state.lofiIdx < images.lofis.length - 1) {
+                state.lofiIdx = state.lofiIdx + 1;
+                localStorage.setItem("lofi-index", state.lofiIdx)
+            }
+            else state.lofiIdx = 0
         },
     },
 });
 
-export const { updateFullScreen } = fullScreenSlice.actions;
+export const { updateTheme } = themeSlice.actions;
 
 export const store = configureStore({
-    reducer: fullScreenSlice.reducer,
+    reducer: themeSlice.reducer,
 });
 
 export default store;

@@ -73,11 +73,8 @@ a {
 }
 
 .slider {
-  /* -webkit-appearance: none;
-  appearance: none;
-  background: coral; */
   outline: none;
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
 

@@ -2,8 +2,10 @@ import React from 'react'
 
 import { FaGithub, FaFacebook, FaYoutube, FaTwitter, FaLinkedin, FaUser, FaExchangeAlt, FaSignOutAlt } from 'react-icons/fa';
 import { IoMdCloudUpload, IoMdSettings } from 'react-icons/io';
-
+import store, { updateTheme } from '../app/store';
 import Path from './Path';
+
+
 
 
 const PopUp = () => {
@@ -25,26 +27,26 @@ const AboutPop = () => {
         <PopWrapper>
             <Path color="black" />
             <div className='z-50 text-white bg-black md:bg-black/[.75] absolute top-16 right-0 p-6 rounded-xl fade-display'>
-                <h2 className='text-center text-4xl'>About Us</h2>
-                <div className='text-xl text-justify mt-5'>my lo213123213fi
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio accusantium temporibus expedita minima soluta nesciunt, odit pariatur sit quod explicabo repellendus quis, culpa veniam dolores ex tempore voluptas minus perferendis?
-                    dawdawdawd awd wad  wa dw ad aw d awd aw daw da
-                    chill app help people concentraiting 123 123213 123</div>
+                <h2 className='text-center text-4xl font-bold'>About Us</h2>
+                <div className='text-2xl text-justify mt-5'>As a student, i understand how difficult it is to just sit at your desk and focus. Especially when you have too many distractions,
+                    Lofi Chill Web is made to be a solution for it. The app contains 10+ free themes and musics for concentrating and working late night. <br /><br />
+                    If you found it helpful, don't forget to give a star to my github source code to stay updated!
+                </div>
                 <div className='flex'>
                     <div className="flex mt-10 mb-2">
-                        <a className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href='https://github.com/goporo'>
+                        <a target="_blank" rel="noreferrer" className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href='https://github.com/goporo'>
                             <FaGithub className='mr-2' /> Github
                         </a>
-                        <a className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.facebook.com/goporolo">
+                        <a target="_blank" rel="noreferrer" className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.facebook.com/profile.php?id=100080407271213">
                             <FaFacebook className='mr-2' fill='#0a85f3' /> Facebook
                         </a>
-                        <a className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.youtube.com/channel/UCummc2AW-p46mrzI4iVI4hA/videos">
+                        <a target="_blank" rel="noreferrer" className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.youtube.com/channel/UCummc2AW-p46mrzI4iVI4hA/videos">
                             <FaYoutube className='mr-2' fill='red' /> Youtube
                         </a>
-                        <a className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://twitter.com/nguyen64526945">
+                        <a target="_blank" rel="noreferrer" className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://twitter.com/nguyen64526945">
                             <FaTwitter className='mr-2' fill='#1da1f2' /> Twitter
                         </a>
-                        <a className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.linkedin.com/in/nguyen-phan-337781203/">
+                        <a target="_blank" rel="noreferrer" className='flex bg-neutral-800 shadow-md shadow-black mr-4 rounded-lg p-2 hover:opacity-70' href="https://www.linkedin.com/in/nguyen-phan-337781203/">
                             <FaLinkedin className='mr-2' fill='#0a66c2' /> Linkedin
                         </a>
                     </div>
@@ -55,6 +57,10 @@ const AboutPop = () => {
 }
 
 const MenuPop = () => {
+    const handleChangeTheme = () => {
+        store.dispatch(updateTheme())
+    }
+
     return (
         <PopWrapper>
             <Path color="black" />
@@ -70,7 +76,9 @@ const MenuPop = () => {
                     <button className='flex p-5 hover:opacity-70'>
                         <IoMdSettings /> <span className='ml-5'>Setting</span>
                     </button>
-                    <button className='flex p-5 hover:opacity-70'>
+                    <button className='flex p-5 hover:opacity-70'
+                        onClick={handleChangeTheme}
+                    >
                         <FaExchangeAlt /> <span className='ml-5'>Change Theme</span>
                     </button>
                     <button className='flex p-5 hover:opacity-70'>

@@ -1,7 +1,5 @@
-import React, { useState, useRef } from 'react'
-
-import { HiOutlinePlay, HiOutlineRewind, HiOutlineFastForward, HiOutlinePause, HiVolumeOff, HiVolumeUp, HiMusicNote } from "react-icons/hi";
-import { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { HiOutlinePlay, HiOutlineRewind, HiOutlineFastForward, HiOutlinePause, HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 
 import audios from '../assets/audios'
 
